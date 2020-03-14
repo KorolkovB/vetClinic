@@ -7,13 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c1d5d1b-d553-4567-b558-474b2f39770b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Disease.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Kind.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Pet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Specialization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Veterinarian.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Visit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbCreateScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbCreateScript.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +56,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -75,7 +79,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1Z2bidauzhUfnWEgRhApNiol4y1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -269,7 +275,7 @@
       <workItem from="1584043232578" duration="852000" />
       <workItem from="1584081256276" duration="757000" />
       <workItem from="1584174906226" duration="3933000" />
-      <workItem from="1584209143674" duration="3736000" />
+      <workItem from="1584209143674" duration="8004000" />
     </task>
     <servers />
   </component>
@@ -282,6 +288,10 @@
     </state>
     <state x="359" y="214" key="#Project_Structure/0.0.1280.994@0.0.1280.994" timestamp="1584174955753" />
     <state x="583" y="258" key="#Project_Structure/62.0.1858.1200/-1920.0.1920.1200@62.0.1858.1200" timestamp="1584081309472" />
+    <state x="370" y="252" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584216906837">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="370" y="252" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.994@0.0.1280.994" timestamp="1584216906837" />
     <state x="368" y="267" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584183045503">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -290,6 +300,10 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="374" y="300" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.994@0.0.1280.994" timestamp="1584182467883" />
+    <state x="445" y="181" key="#com.intellij.ide.util.MemberChooser" timestamp="1584217165378">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="445" y="181" key="#com.intellij.ide.util.MemberChooser/0.0.1280.994@0.0.1280.994" timestamp="1584217165378" />
     <state x="232" y="155" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1584181994523">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -302,10 +316,14 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="439" y="403" key="#com.intellij.javaee.module.view.web.EditWebRootDialog/0.0.1280.994@0.0.1280.994" timestamp="1584040648747" />
-    <state x="420" y="238" key="FileChooserDialogImpl" timestamp="1584181986499">
+    <state x="231" y="91" key="CommitChangelistDialog2" timestamp="1584213494665">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="420" y="238" key="FileChooserDialogImpl/0.0.1280.994@0.0.1280.994" timestamp="1584181986499" />
+    <state x="231" y="91" key="CommitChangelistDialog2/0.0.1280.994@0.0.1280.994" timestamp="1584213494665" />
+    <state x="420" y="238" key="FileChooserDialogImpl" timestamp="1584213181194">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="420" y="238" key="FileChooserDialogImpl/0.0.1280.994@0.0.1280.994" timestamp="1584213181194" />
     <state width="1237" height="267" key="GridCell.Tab.0.bottom" timestamp="1584199289209">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -395,5 +413,9 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="336" y="321" key="com.intellij.ide.util.TipDialog/0.0.1280.994@0.0.1280.994" timestamp="1584209171616" />
+    <state x="449" y="414" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584213465184">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="449" y="414" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.994@0.0.1280.994" timestamp="1584213465184" />
   </component>
 </project>
