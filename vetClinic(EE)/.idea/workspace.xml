@@ -7,11 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c1d5d1b-d553-4567-b558-474b2f39770b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/WEB-INF/classes/connectionSettings.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/WEB-INF/classes/dbInsertDataScript.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/vetClinic(EE)/connectionSettings.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/vetClinic(EE)/dbInsertDataScript.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/AbstractDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/InterfaceDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/WEB-INF/classes/dbCreateScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/WEB-INF/classes/dbCreateScript.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/vetClinic(EE)/dbCreateScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vetClinic(EE)/dbCreateScript.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Disease.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Disease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Kind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Kind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Specialization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Veterinarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Veterinarian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Visit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +64,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -263,7 +276,7 @@
       <workItem from="1584081256276" duration="757000" />
       <workItem from="1584174906226" duration="3933000" />
       <workItem from="1584209143674" duration="8318000" />
-      <workItem from="1584297666539" duration="1231000" />
+      <workItem from="1584297666539" duration="2255000" />
     </task>
     <servers />
   </component>
