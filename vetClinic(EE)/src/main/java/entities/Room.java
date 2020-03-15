@@ -8,6 +8,9 @@ public class Room {
     private String name;
     private List<Visit> visits;
 
+    public Room() {
+    }
+
     public List<Visit> getVisits() {
         return visits;
     }

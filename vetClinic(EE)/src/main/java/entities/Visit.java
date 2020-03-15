@@ -8,6 +8,9 @@ public class Visit {
     private Date visitDateTime;
     private boolean visited;
 
+    public Visit() {
+    }
+
     public int getId() {
         return id;
     }

@@ -10,6 +10,9 @@ public class Pet {
     private List<Disease> diseases;
     private List<Visit> visits;
 
+    public Pet() {
+    }
+
     public List<Visit> getVisits() {
         return visits;
     }

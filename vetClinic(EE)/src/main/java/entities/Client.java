@@ -7,11 +7,14 @@ public class Client {
     private int id;
     private String firstName;
     private String lastName;
-    private int passportSerie;
+    private int passportSeries;
     private int passportNumber;
     private int phoneNumber;
     private String email;
     private List<Pet> pets;
+
+    public Client() {
+    }
 
     public List<Pet> getPets() {
         return pets;
@@ -41,12 +44,12 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public int getPassportSerie() {
-        return passportSerie;
+    public int getPassportSeries() {
+        return passportSeries;
     }
 
-    public void setPassportSerie(int passportSerie) {
-        this.passportSerie = passportSerie;
+    public void setPassportSeries(int passportSeries) {
+        this.passportSeries = passportSeries;
     }
 
     public int getPassportNumber() {
@@ -78,7 +81,7 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return passportSerie == client.passportSerie &&
+        return passportSeries == client.passportSeries &&
                 passportNumber == client.passportNumber &&
                 phoneNumber == client.phoneNumber &&
                 Objects.equals(firstName, client.firstName) &&
@@ -88,7 +91,7 @@ public class Client {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, passportSerie, passportNumber, phoneNumber, email);
+        return Objects.hash(firstName, lastName, passportSeries, passportNumber, phoneNumber, email);
     }
 
     @Override
@@ -96,7 +99,7 @@ public class Client {
         return "Client{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", passportSerie=" + passportSerie +
+                ", passportSerie=" + passportSeries +
                 ", passportNumber=" + passportNumber +
                 ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +

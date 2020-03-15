@@ -11,6 +11,9 @@ public class Disease {
     private Date diagnosisDate;
     private List<Pet> pets;
 
+    public Disease() {
+    }
+
     public boolean isActive() {
         return isActive;
     }

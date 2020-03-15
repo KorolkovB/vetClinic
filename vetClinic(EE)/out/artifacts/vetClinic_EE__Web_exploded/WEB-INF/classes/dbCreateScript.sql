@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS veterinarian(
   firstName VARCHAR(45) NOT NULL,
   lastName VARCHAR(45) NOT NULL,
   hiringDate date NOT NULL,
-  dismissalDate date NOT NULL,
+  dismissalDate date,
   INDEX(lastName)
 );
 
@@ -32,7 +32,7 @@ firstName VARCHAR(45) NOT NULL,
 lastName VARCHAR(45) NOT NULL,
 passportSerie INT(4) UNSIGNED NOT NULL,
 passportNumber INT(6) UNSIGNED NOT NULL,
-phoneNumber INT(10) UNSIGNED NOT NULL,
+phoneNumber INT(11) UNSIGNED NOT NULL,
 email VARCHAR(45),
 INDEX(lastName),
 UNIQUE (passportSerie,passportNumber)
@@ -84,7 +84,8 @@ id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 petId INT UNSIGNED NOT NULL,
 vetId INT UNSIGNED NOT NULL,
 roomId INT UNSIGNED NOT NULL,
-visitDate date NOT NULL,
+visitDateTime datetime NOT NULL,
+visited BOOLEAN,
 FOREIGN KEY (petId) REFERENCES pet(id),
 FOREIGN KEY (vetId) REFERENCES veterinarian(id),
 FOREIGN KEY (roomId) REFERENCES room(id)

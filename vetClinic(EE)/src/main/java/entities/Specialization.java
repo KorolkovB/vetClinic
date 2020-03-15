@@ -8,6 +8,9 @@ public class Specialization {
     private String name;
     private List<Veterinarian> veterinarians;
 
+    public Specialization() {
+    }
+
     public List<Veterinarian> getVeterinarians() {
         return veterinarians;
     }

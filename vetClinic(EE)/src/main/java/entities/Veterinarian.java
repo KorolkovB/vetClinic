@@ -13,6 +13,9 @@ public class Veterinarian {
     private List<Specialization> specializations;
     private List<Visit> visits;
 
+    public Veterinarian() {
+    }
+
     public List<Visit> getVisits() {
         return visits;
     }

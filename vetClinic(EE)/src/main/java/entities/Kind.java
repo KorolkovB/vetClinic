@@ -8,6 +8,9 @@ public class Kind {
     private String name;
     private List<Pet> pets;
 
+    public Kind() {
+    }
+
     public List<Pet> getPets() {
         return pets;
     }
