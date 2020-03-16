@@ -13,7 +13,7 @@ public class DAOFactory {
         }
     }
 
-    private static synchronized DAOFactory getInstance() {
+    public static synchronized DAOFactory getInstance() {
         if (factory == null) {
             factory = new DAOFactory();
         }

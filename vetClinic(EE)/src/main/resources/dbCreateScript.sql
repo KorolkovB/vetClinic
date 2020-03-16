@@ -91,3 +91,21 @@ FOREIGN KEY (vetId) REFERENCES veterinarian(id),
 FOREIGN KEY (roomId) REFERENCES room(id)
 );
 
+CREATE TABLE IF NOT EXISTS `user` (
+id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+login VARCHAR(50) NOT NULL,
+`password` VARCHAR(10) NOT NULL,
+isAdmin BOOLEAN NOT NULL,
+isVet BOOLEAN NOT NULL,
+isClient BOOLEAN NOT NULL,
+vetId INT UNSIGNED,
+clientId INT UNSIGNED,
+INDEX(login),
+FOREIGN KEY (vetId) REFERENCES veterinarian(id),
+FOREIGN KEY (clientId) REFERENCES `client`(id),
+UNIQUE (login),
+UNIQUE (vetId),
+UNIQUE (clientId)
+);
+
+
