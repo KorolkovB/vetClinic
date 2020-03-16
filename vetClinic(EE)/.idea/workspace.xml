@@ -7,20 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c1d5d1b-d553-4567-b558-474b2f39770b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/vetClinic_EE__Web_exploded/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vetClinic(EE)/connectionSettings.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vetClinic(EE)/dbCreateScript.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vetClinic(EE)/dbInsertDataScript.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/MainCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/MainCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbCreateScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbCreateScript.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbInsertDataScript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbInsertDataScript.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/ClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/UserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,12 +275,15 @@
       <workItem from="1584209143674" duration="8318000" />
       <workItem from="1584297666539" duration="2255000" />
       <workItem from="1584342361828" duration="17038000" />
-      <workItem from="1584384959105" duration="2214000" />
+      <workItem from="1584384959105" duration="3236000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1381" y="258" width="1137" height="805" key="#Project_Structure" timestamp="1584355919065">
@@ -450,5 +442,9 @@
     </state>
     <state x="449" y="414" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.994@0.0.1280.994" timestamp="1584213465184" />
     <state x="-1246" y="500" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1858.1200/-1920.0.1920.1200@-1920.0.1920.1200" timestamp="1584355568155" />
+    <state x="303" y="213" width="672" height="678" key="search.everywhere.popup" timestamp="1584389802509">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="303" y="213" width="672" height="678" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1584389802509" />
   </component>
 </project>

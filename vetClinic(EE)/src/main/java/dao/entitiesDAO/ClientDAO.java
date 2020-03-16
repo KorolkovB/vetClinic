@@ -14,4 +14,6 @@ public class ClientDAO extends AbstractDAO {
         }
         return instance;
     }
+
+
 }
