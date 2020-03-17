@@ -11,6 +11,10 @@ public class Kind {
     public Kind() {
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public List<Pet> getPets() {
         return pets;
     }

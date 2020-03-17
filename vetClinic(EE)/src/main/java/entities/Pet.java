@@ -9,8 +9,21 @@ public class Pet {
     private int age;
     private List<Disease> diseases;
     private List<Visit> visits;
+    private Kind kind;
 
     public Pet() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Kind getKind() {
+        return kind;
+    }
+
+    public void setKind(Kind kind) {
+        this.kind = kind;
     }
 
     public List<Visit> getVisits() {

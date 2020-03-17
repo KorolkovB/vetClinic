@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>It is ok!</h1>
-<%=config.getServletName()%>
+<%%>
 <p>Today's date: <%= (new java.util.Date()).toLocaleString()%></p>
 </body>
 </html>

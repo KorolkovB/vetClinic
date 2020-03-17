@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandFactory {
-    private static CommandFactory factory;
+    private static CommandFactory factory = new CommandFactory();
     private Map<String, Command> commands = new HashMap<>();
 
     public CommandFactory() {

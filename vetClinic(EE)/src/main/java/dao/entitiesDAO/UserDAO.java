@@ -3,8 +3,12 @@ package dao.entitiesDAO;
 import dao.AbstractDAO;
 import entities.User;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAO extends AbstractDAO {
@@ -25,20 +29,26 @@ public class UserDAO extends AbstractDAO {
     PreparedStatement statement = null;
 
         try {
+            String text = Files.readString(Paths.get("src\\main\\resources\\DML_DAO_Scripts\\User\\addUser.txt"));
             connection = getConnection();
-            statement = connection.prepareStatement("INSERT INTO `vetclinic`.`user`" +
-                    " (`login`,`password`,`isAdmin`,`isVet`,`isClient`,`vetId`,`clientId`) VALUES (?,?,?,?,?,?,?)");
+            statement = connection.prepareStatement(text);
 
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
             statement.setBoolean(3, user.isAdmin());
             statement.setBoolean(4, user.isVet());
             statement.setBoolean(5, user.isClient());
-        } catch (ClassNotFoundException | SQLException e) {
+            statement.executeUpdate();
+
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) FROM `user`");
+            rs.next();
+            int userId = rs.getInt(1);
+            user.setId(userId);
+
+        } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection,statement);
         }
-
-
-
     }
 }

@@ -1,5 +1,6 @@
 package dao.entitiesDAO;
 
+
 import dao.AbstractDAO;
 
 public class ClientDAO extends AbstractDAO {

@@ -69,3 +69,18 @@ VALUES
 (3,5,0,'2019-12-09'),
 (4,5,0,'2020-01-20'),
 (5,4,1,'2020-03-01');
+
+INSERT INTO `vetclinic`.`user`
+(`login`,`password`,`isAdmin`,`isVet`,`isClient`,`vetId`,`clientId`)
+VALUES
+('admin','admin',true,false,false,null,null),
+('Smith','Smith',false,true,false,1,null),
+('Miller','Miller',false,true,false,2,null),
+('White','White',false,true,false,3,null),
+('Wood','Wood',false,true,false,4,null),
+('Morgan','Morgan',false,true,false,5,null),
+('Hill','Hill',false,false,true,null,1),
+('Jackson','Jackson',false,false,true,null,2),
+('Scott','Scott',false,false,true,null,3),
+('Green','Green',false,false,true,null,4),
+('Turner','Turner',false,false,true,null,5);
