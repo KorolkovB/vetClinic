@@ -33,7 +33,8 @@ public class PetDAO extends AbstractDAO {
         List<Kind> kinds = null;
 
         try {
-            String text = Files.readString(Paths.get("src\\main\\resources\\DML_DAO_Scripts\\Pet\\getAllPetsByUser.txt"));
+            //String text = Files.readString(Paths.get("src\\main\\resources\\DML_DAO_Scripts\\Pet\\getAllPetsByUser.txt"));
+            String text = Files.readString(Paths.get("C:\\Users\\V18\\Google Диск\\MyProject\\vetClinic\\vetClinic(EE)\\src\\main\\resources\\DML_DAO_Scripts\\Pet\\getAllPetsByUser.txt"));
             connection = getConnection();
             statement = connection.prepareStatement(text);
             statement.setInt(1, user.getId());

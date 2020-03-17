@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public abstract class AbstractDAO implements InterfaceDAO {
-    private static final String URL = "jdbc:mysql://localhost:3306/jdbcDB?useUnicode=true&serverTimezone" +
+    private static final String URL = "jdbc:mysql://localhost:3306/vetclinic?useUnicode=true&serverTimezone" +
             "=UTC&useSSL=false&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
     private static final String PASSWORD = "ZXuhaha11ha";
