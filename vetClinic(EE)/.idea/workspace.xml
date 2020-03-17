@@ -7,35 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c1d5d1b-d553-4567-b558-474b2f39770b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/DML_DAO_Scripts/Pet/getAllPetsByUser.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/DML_DAO_Scripts/User/addUser.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapps/main.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapps/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/vetClinic_EE__Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/vetClinic_EE__Web_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vetClinic(EE).iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vetClinic(EE).iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/artifacts/vetClinic_EE__Web_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/artifacts/vetClinic_EE__Web_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/artifacts/vetClinic_EE__Web_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/artifacts/vetClinic_EE__Web_exploded/main.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/production/vetClinic(EE)/connectionSettings.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/production/vetClinic(EE)/dbCreateScript.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out (1)/production/vetClinic(EE)/dbInsertDataScript.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CommandFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/MainCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/MainCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AbstractDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/InterfaceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/InterfaceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/PetDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/PetDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/entitiesDAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Kind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Kind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapps/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapps/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapps/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +255,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
