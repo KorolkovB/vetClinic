@@ -1,0 +1,8 @@
+SELECT `user`.`id`,
+    `user`.`isAdmin`,
+    `user`.`isVet`,
+    `user`.`isClient`,
+    `user`.`vetId`,
+    `user`.`clientId`
+FROM `vetclinic`.`user`
+WHERE `user`.`login` = ? AND `user`.`password`= ?

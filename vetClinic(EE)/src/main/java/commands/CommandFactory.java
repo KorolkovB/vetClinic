@@ -20,6 +20,7 @@ public class CommandFactory {
 
     {
         commands.put("main", new MainCommand());
+        commands.put("login", new LoginCommand());
     }
 
     public Command getCommand(HttpServletRequest request){

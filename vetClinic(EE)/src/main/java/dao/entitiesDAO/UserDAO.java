@@ -1,7 +1,10 @@
 package dao.entitiesDAO;
 
 import dao.AbstractDAO;
+import entities.Kind;
+import entities.Pet;
 import entities.User;
+import utilities.PathConverter;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserDAO extends AbstractDAO {
     private static UserDAO instance;
@@ -25,11 +29,12 @@ public class UserDAO extends AbstractDAO {
     }
 
     public void addUser(User user) {
-    Connection connection = null;
-    PreparedStatement statement = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
 
         try {
-            String text = Files.readString(Paths.get("src\\main\\resources\\DML_DAO_Scripts\\User\\addUser.txt"));
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/addUser.txt");
+            String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);
 
@@ -48,7 +53,36 @@ public class UserDAO extends AbstractDAO {
         } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
         } finally {
-            closeConnectionAndStatement(connection,statement);
+            closeConnectionAndStatement(connection, statement);
+        }
+    }
+
+    public User getUser(String login, String password) {
+        User user = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/getUserByLoginAndPass.txt");
+            String text = Files.readString(Paths.get(absolutePath));
+
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+            statement.setString(1, login);
+            statement.setString(1, password);
+
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            user = new User();
+
+            user.setId(rs.getInt("id"));
+            user.setAdmin(rs.getBoolean("isAdmin"));
+            user.setVet(rs.getBoolean("isVet"));
+            user.setClient(rs.getBoolean("isClient"));
+
+
+        } catch (IOException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
     }
 }

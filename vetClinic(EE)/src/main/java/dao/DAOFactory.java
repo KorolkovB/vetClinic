@@ -51,4 +51,8 @@ public class DAOFactory {
     public VisitDAO getVisitDAO() {
         return VisitDAO.getInstance();
     }
+
+    public UserDAO getUser() {
+        return UserDAO.getInstance();
+    }
 }

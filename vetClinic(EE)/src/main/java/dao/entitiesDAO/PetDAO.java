@@ -2,8 +2,12 @@ package dao.entitiesDAO;
 
 import dao.AbstractDAO;
 import entities.*;
+import utilities.PathConverter;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -33,8 +37,8 @@ public class PetDAO extends AbstractDAO {
         List<Kind> kinds = null;
 
         try {
-            //String text = Files.readString(Paths.get("src\\main\\resources\\DML_DAO_Scripts\\Pet\\getAllPetsByUser.txt"));
-            String text = Files.readString(Paths.get("C:\\Users\\V18\\Google Диск\\MyProject\\vetClinic\\vetClinic(EE)\\src\\main\\resources\\DML_DAO_Scripts\\Pet\\getAllPetsByUser.txt"));
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/getAllPetsByUser.txt");
+            String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);
             statement.setInt(1, user.getId());
