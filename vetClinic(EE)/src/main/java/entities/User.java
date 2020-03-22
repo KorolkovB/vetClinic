@@ -9,6 +9,8 @@ public class User {
     private boolean isAdmin;
     private boolean isVet;
     private boolean isClient;
+    private int veterinarianId;
+    private int clientId;
     private Veterinarian veterinarian;
     private Client client;
 
@@ -21,6 +23,22 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public int getVeterinarianId() {
+        return veterinarianId;
+    }
+
+    public void setVeterinarianId(int veterinarianId) {
+        this.veterinarianId = veterinarianId;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public String getLogin() {

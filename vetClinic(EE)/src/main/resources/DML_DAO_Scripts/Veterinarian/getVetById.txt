@@ -1,0 +1,7 @@
+SELECT `veterinarian`.`id`,
+    `veterinarian`.`firstName`,
+    `veterinarian`.`lastNamehiringDatedismissalDatehiringDate`,
+    `veterinarian`.`hiringDate`,
+    `veterinarian`.`dismissalDate`
+FROM `vetclinic`.`veterinarian`
+WHERE `veterinarian`.`id` = ?

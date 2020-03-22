@@ -1,4 +1,6 @@
 SELECT `user`.`id`,
+    `user`.`login`,
+    `user`.`password`,
     `user`.`isAdmin`,
     `user`.`isVet`,
     `user`.`isClient`,

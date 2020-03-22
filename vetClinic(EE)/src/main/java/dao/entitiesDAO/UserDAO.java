@@ -1,9 +1,8 @@
 package dao.entitiesDAO;
 
 import dao.AbstractDAO;
-import entities.Kind;
-import entities.Pet;
 import entities.User;
+import entities.Veterinarian;
 import utilities.PathConverter;
 
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class UserDAO extends AbstractDAO {
     private static UserDAO instance;
@@ -63,7 +61,8 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement statement = null;
 
         try {
-            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/getUserByLoginAndPass.txt");
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/" +
+                    "getUserByLoginAndPass.txt");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();
@@ -76,13 +75,16 @@ public class UserDAO extends AbstractDAO {
             user = new User();
 
             user.setId(rs.getInt("id"));
+            user.setLogin(rs.getString("login"));
+            user.setPassword(rs.getString("password"));
             user.setAdmin(rs.getBoolean("isAdmin"));
             user.setVet(rs.getBoolean("isVet"));
             user.setClient(rs.getBoolean("isClient"));
-
-
+            user.setVeterinarianId(rs.getInt("vetId"));
+            user.setClientId(rs.getInt("clientId"));
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+        return user;
     }
 }
