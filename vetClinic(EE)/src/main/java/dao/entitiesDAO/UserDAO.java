@@ -68,10 +68,13 @@ public class UserDAO extends AbstractDAO {
             connection = getConnection();
             statement = connection.prepareStatement(text);
             statement.setString(1, login);
-            statement.setString(1, password);
+            statement.setString(2, password);
 
             ResultSet rs = statement.executeQuery();
-            rs.next();
+            boolean hasResult = rs.next();
+            if (!hasResult){
+                return null;
+            }
             user = new User();
 
             user.setId(rs.getInt("id"));
@@ -84,6 +87,8 @@ public class UserDAO extends AbstractDAO {
             user.setClientId(rs.getInt("clientId"));
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
         }
         return user;
     }

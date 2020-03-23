@@ -27,18 +27,18 @@ public class LoginCommand implements Command {
                 Veterinarian vet = veterinarianDAO.getVetById(user.getVeterinarianId());
                 user.setVeterinarian(vet);
                 request.getSession().setAttribute("vet", vet);
-                page = "controller?action=mainVeterinarian";
+                page = "controller?action=main";
             } else if (user.isClient()) {
                 ClientDAO clientDAO = daoFactory.getClientDAO();
                 Client client = clientDAO.getClientById(user.getClientId());
                 request.getSession().setAttribute("client", client);
-                page = "controller?action=mainClient";
-            } else {
+                page = "controller?action=main";
+            } else if (user.isAdmin()){
                 request.getSession().setAttribute("isAdmin", true);
-                page = "controller?action=mainAdmin";
+                page = "controller?action=main";
             }
         } else {
-            request.setAttribute("notFound", "User not found");
+            request.setAttribute("notFound", "There is no user with such username and password.");
             page = "login.jsp";
         }
         return page;

@@ -1,6 +1,6 @@
 SELECT `veterinarian`.`id`,
     `veterinarian`.`firstName`,
-    `veterinarian`.`lastNamehiringDatedismissalDatehiringDate`,
+    `veterinarian`.`lastName`,
     `veterinarian`.`hiringDate`,
     `veterinarian`.`dismissalDate`
 FROM `vetclinic`.`veterinarian`

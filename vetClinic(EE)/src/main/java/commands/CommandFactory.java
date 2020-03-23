@@ -21,6 +21,7 @@ public class CommandFactory {
     {
         commands.put("main", new MainCommand());
         commands.put("login", new LoginCommand());
+        commands.put("register", new RegisterCommand());
     }
 
     public Command getCommand(HttpServletRequest request){
