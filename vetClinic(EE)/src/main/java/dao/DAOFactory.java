@@ -52,7 +52,7 @@ public class DAOFactory {
         return VisitDAO.getInstance();
     }
 
-    public UserDAO getUser() {
+    public UserDAO getUserDAO() {
         return UserDAO.getInstance();
     }
 }

@@ -13,6 +13,10 @@
 </head>
 <body>
 <%String notFound = (String) request.getAttribute("notFound");%>
+<%String RegistrationOk = (String) request.getAttribute("RegistrationOk");%>
+<%if (RegistrationOk!= null) {%>
+<%=RegistrationOk%>
+<%}%>
 <form method="post" action="controller?action=login">
     <p><input type="text" name="login" size="10"/></p>
     <p><input type="password" name="password" size="10"/></p>

@@ -16,7 +16,7 @@ public class LoginCommand implements Command {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         DAOFactory daoFactory = DAOFactory.getInstance();
-        UserDAO userDAO = daoFactory.getUser();
+        UserDAO userDAO = daoFactory.getUserDAO();
         User user = userDAO.getUser(login, password);
         String page = null;
 

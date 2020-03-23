@@ -11,6 +11,15 @@
     <title>Registration</title>
 </head>
 <body>
+<%String userExist = (String) request.getAttribute("userExist");%>
+<form method="post" action="controller?action=register">
+    <p><input type="text" name="login" size="10"/></p>
+    <p><input type="password" name="password" size="10"/></p>
+    <p><input type="submit" name="Register me."/></p>
+</form>
+<%if (userExist != null) {%>
+<%=userExist%>
+<%}%>
 
 </body>
 </html>
