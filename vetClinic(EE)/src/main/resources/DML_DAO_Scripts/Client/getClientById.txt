@@ -1,7 +1,7 @@
 SELECT `client`.`id`,
     `client`.`firstName`,
     `client`.`lastName`,
-    `client`.`passportSerie`,
+    `client`.`passportSeries`,
     `client`.`passportNumber`,
     `client`.`phoneNumber`,
     `client`.`email`

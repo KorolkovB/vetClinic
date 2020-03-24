@@ -34,7 +34,7 @@ public class ClientDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Client/" +
-                    "getClientByUd.txt");
+                    "getClientById.txt");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();
@@ -48,7 +48,7 @@ public class ClientDAO extends AbstractDAO {
             client.setId(rs.getInt("id"));
             client.setFirstName(rs.getString("firstName"));
             client.setLastName(rs.getString("lastName"));
-            client.setPassportSeries(rs.getInt("passportSerie"));
+            client.setPassportSeries(rs.getInt("passportSeries"));
             client.setPassportNumber(rs.getInt("passportNumber"));
             client.setPhoneNumber(rs.getInt("phoneNumber"));
             client.setEmail(rs.getString("email"));
@@ -59,6 +59,36 @@ public class ClientDAO extends AbstractDAO {
             closeConnectionAndStatement(connection, statement);
         }
         return client;
+    }
+
+    public int updateClient(Client client) {
+        int result = 0;
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Client/" +
+                    "updateClientById");
+            String text = Files.readString(Paths.get(absolutePath));
+
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+            statement.setString(1, client.getFirstName());
+            statement.setString(2, client.getLastName());
+            statement.setInt(3, client.getPassportSeries());
+            statement.setInt(4, client.getPassportNumber());
+            statement.setInt(5, client.getPhoneNumber());
+            statement.setString(6, client.getEmail());
+            statement.setInt(7, client.getId());
+
+            result = statement.executeUpdate();
+        } catch (IOException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
+
+        return result;
     }
 
 

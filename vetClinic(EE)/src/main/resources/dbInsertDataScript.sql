@@ -28,7 +28,7 @@ VALUES
 ('Oliver','Morgan','2015-12-25',null);
 
 INSERT INTO `vetclinic`.`client`
-(`firstName`,`lastName`,`passportSerie`,`passportNumber`,`phoneNumber`,`email`)
+(`firstName`,`lastName`,`passportSeries`,`passportNumber`,`phoneNumber`,`email`)
 VALUES
 ('Maddison','Hill',4689,569312,984213356,'Maddison.Hill@gmail.com'),
 ('Joshua','Jackson',2003,135487,942364528,'joshua.jackson@gmail.com'),

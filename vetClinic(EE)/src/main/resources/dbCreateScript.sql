@@ -30,12 +30,12 @@ CREATE TABLE IF NOT EXISTS `client` (
 id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 firstName VARCHAR(45) NOT NULL,
 lastName VARCHAR(45) NOT NULL,
-passportSerie INT(4) UNSIGNED NOT NULL,
+passportSeries INT(4) UNSIGNED NOT NULL,
 passportNumber INT(6) UNSIGNED NOT NULL,
 phoneNumber INT(11) UNSIGNED NOT NULL,
 email VARCHAR(45),
 INDEX(lastName),
-UNIQUE (passportSerie,passportNumber)
+UNIQUE (passportSeries,passportNumber)
 );
 
 CREATE TABLE IF NOT EXISTS kind (
