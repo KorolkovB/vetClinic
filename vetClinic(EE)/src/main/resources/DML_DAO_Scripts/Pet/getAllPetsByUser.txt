@@ -1,8 +1,6 @@
 SELECT `pet`.`id` as petId,
-    `pet`.`kindId`,
     `pet`.`nickname`,
     `pet`.`age`,
-    `pet`.`ownerId`,
     `kind`.`name` as kindName
 FROM `vetclinic`.`pet`
 join `vetclinic`.`kind` on `pet`.`kindId` = `kind`.`id`

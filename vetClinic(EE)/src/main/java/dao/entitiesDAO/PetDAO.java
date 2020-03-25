@@ -31,10 +31,10 @@ public class PetDAO extends AbstractDAO {
         Connection connection = null;
         PreparedStatement statement = null;
         List<Pet> pets = null;
-        List<Kind> kinds = null;
 
         try {
-            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/getAllPetsByUser.txt");
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/" +
+                    "getAllPetsByUser.txt");
             String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);
@@ -43,7 +43,6 @@ public class PetDAO extends AbstractDAO {
             ResultSet rs = statement.executeQuery();
 
             pets = new ArrayList<>();
-            kinds = new ArrayList<>();
             while (rs.next()) {
                 Pet pet = new Pet();
                 Kind kind = new Kind();
@@ -52,13 +51,10 @@ public class PetDAO extends AbstractDAO {
                 pet.setNickname(rs.getString("nickname"));
                 pet.setAge(rs.getInt("age"));
 
-                kind.setId(rs.getInt("kindId"));
                 kind.setName(rs.getString("kindName"));
-
                 pet.setKind(kind);
                 pets.add(pet);
             }
-            user.getClient().setPets(pets);
         } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
         } finally {

@@ -1,7 +1,5 @@
-<%@ page import="java.sql.Connection" %>
-<%@ page import="entities.User" %>
-<%@ page import="entities.Client" %>
-<%@ page import="entities.Veterinarian" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="entities.*" %><%--
   Created by IntelliJ IDEA.
   User: Viktor_Korolkov
   Date: 16.03.2020
@@ -42,6 +40,31 @@
         <p>Phone Number: <%=client.getPhoneNumber()%></p>
         <p>Email: <%=client.getEmail()%></p>
         <p>You can change them <a href="editClientData.jsp">here</a>.</p>
+        <%if (client.getPets()!= null) {%>
+            <p>Here is list of your pets that are registered at the clinic:</p>
+            <table border="1">
+                <tr>
+                    <td>Nickname</td>
+                    <td>Age</td>
+                    <td>Kind</td>
+                    <td>Active diseases</td>
+                </tr>
+            <%for (Pet pet : client.getPets()) {%>
+                <tr>
+                    <td><%=pet.getNickname()%></td>
+                    <td><%=pet.getAge()%></td>
+                    <td><%=pet.getKind().getName()%></td>
+                    <td>
+                        <%for (Disease disease : pet.getDiseases()) {%>
+                            <%if (disease.isActive()) {%>
+                                <%=disease.getName()%><br>
+                            <%}%>
+                        <% }%>
+                    </td>
+                </tr>
+            <% }%>
+            </table>
+        <%}%>
         <p>You can also add or remove your pets. And book them on a visit to the vet
             <a href="controller?action=editPetList.">here</a>.</p>
 

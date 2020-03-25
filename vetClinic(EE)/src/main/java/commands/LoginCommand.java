@@ -1,14 +1,14 @@
 package commands;
 
 import dao.DAOFactory;
-import dao.entitiesDAO.ClientDAO;
-import dao.entitiesDAO.UserDAO;
-import dao.entitiesDAO.VeterinarianDAO;
+import dao.entitiesDAO.*;
 import entities.Client;
+import entities.Pet;
 import entities.User;
 import entities.Veterinarian;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 public class LoginCommand implements Command {
     @Override
@@ -31,9 +31,18 @@ public class LoginCommand implements Command {
             } else if (user.isClient()) {
                 ClientDAO clientDAO = daoFactory.getClientDAO();
                 Client client = clientDAO.getClientById(user.getClientId());
+                user.setClient(client);
                 request.getSession().setAttribute("client", client);
+
+                PetDAO petDAO = daoFactory.getPetDAO();
+                List<Pet> pets = petDAO.getAllPets(user);
+                DiseaseDAO diseaseDAO = daoFactory.getDiseaseDAO();
+                for (int i = 0; i < pets.size(); i++) {
+                    pets.get(i).setDiseases(diseaseDAO.getAllDiseases(pets.get(i)));
+                }
+                client.setPets(pets);
                 page = "controller?action=main";
-            } else if (user.isAdmin()){
+            } else if (user.isAdmin()) {
                 request.getSession().setAttribute("isAdmin", true);
                 page = "controller?action=main";
             }
