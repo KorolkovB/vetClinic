@@ -27,18 +27,18 @@ public class PetDAO extends AbstractDAO {
         return instance;
     }
 
-    public List<Pet> getAllPets(User user) {
+    public List<Pet> getAllPets(Client client) {
         Connection connection = null;
         PreparedStatement statement = null;
         List<Pet> pets = null;
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/" +
-                    "getAllPetsByUser.txt");
+                    "getAllPetsByClient.txt");
             String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);
-            statement.setInt(1, user.getId());
+            statement.setInt(1, client.getId());
 
             ResultSet rs = statement.executeQuery();
 

@@ -4,5 +4,4 @@ SELECT `pet`.`id` as petId,
     `kind`.`name` as kindName
 FROM `vetclinic`.`pet`
 join `vetclinic`.`kind` on `pet`.`kindId` = `kind`.`id`
-join `vetclinic`.`user` on `pet`.`ownerId` = `user`.`clientId`
-where `user`.`id` = ?
+where `pet`.`ownerId` = ?

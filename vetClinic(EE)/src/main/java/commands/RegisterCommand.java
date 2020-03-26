@@ -22,7 +22,7 @@ public class RegisterCommand implements Command {
             user.setClient(true);
 
             userDAO.addUser(user);
-            request.setAttribute("RegistrationOk", "Registration was successful. Now you can log in!");
+            request.setAttribute("registrationOk", "Registration was successful. Now you can log in!");
             page = "login.jsp";
         } else {
             request.setAttribute("userExist", "A user with the same name already exists.");

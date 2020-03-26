@@ -35,7 +35,7 @@ public class LoginCommand implements Command {
                 request.getSession().setAttribute("client", client);
 
                 PetDAO petDAO = daoFactory.getPetDAO();
-                List<Pet> pets = petDAO.getAllPets(user);
+                List<Pet> pets = petDAO.getAllPets(client);
                 DiseaseDAO diseaseDAO = daoFactory.getDiseaseDAO();
                 for (int i = 0; i < pets.size(); i++) {
                     pets.get(i).setDiseases(diseaseDAO.getAllDiseases(pets.get(i)));
