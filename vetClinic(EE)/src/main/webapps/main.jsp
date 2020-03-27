@@ -12,93 +12,94 @@
     <title>Welcome!</title>
 </head>
 <body>
-<%User user = (User) session.getAttribute("user");%>
-<%Client client = (Client) session.getAttribute("client");%>
-<%Veterinarian vet = (Veterinarian) session.getAttribute("vet");%>
-<%String updated = (String) request.getAttribute("updated");%>
+<c:set var="user" value="${sessionScope.user}"/>
+<c:set var="client" value="${sessionScope.client}"/>
+<c:set var="vet" value="${sessionScope.vet}"/>
+<c:set var="isAdmin" value="${sessionScope.isAdmin}"/>
+<c:set var="updated" value="${requestScope.updated}"/>
 
 <c:choose>
-    <c:when test="${sessionScope.user!=null}">
-        <p>Welcome, user <%=user.getLogin()%>!</p>
+    <c:when test="${user!=null}">
+        <p>Welcome, user <c:out value="${user.login}"/>!</p>
         <c:choose>
-            <c:when test="${sessionScope.vet!=null}">
-                <%vet = (Veterinarian) session.getAttribute("vet");%>
-                <p>You are registered in the vetclinic as a veterinarian <%=vet.getFirstName()%> <%=vet.getLastName()%>
-                    .</p>
-                <p>You can assign or remove a visit of the client at the <a href="controller?action=vet">veterinarian
+            <c:when test="${vet!=null}">
+                <p>You are registered in the vetclinic as a veterinarian
+                    <c:out value="${vet.firstName}"/>
+                    <c:out value="${vet.lastName}"/>.</p>
+                <p>You can assign or remove a visit of the client at the <a href="controller?action=openVetPanel">veterinarian
                     panel</a>!</p>
             </c:when>
-            <c:when test="${sessionScope.client!=null}">
-                <%client = (Client) session.getAttribute("client");%>
+            <c:when test="${client!=null}">
                 <p>You are registered in the vetclinic as a client.</p>
-                <%if (updated != null) {%>
-                <p><strong><%=updated%>
-                </strong></p>
-                <%} else {%>
-                <p>Your passport data and contacts:</p>
-                <%}%>
-
-                <p>First name: <%=client.getFirstName()%>
+                <c:choose>
+                    <c:when test="${updated!=null}">
+                        <p><strong> <c:out value="${updated}"/>
+                        </strong></p>
+                    </c:when>
+                    <c:otherwise>
+                        <p>Your passport data and contacts:</p>
+                    </c:otherwise>
+                </c:choose>
+                <p>First name: <c:out value="${client.firstName}"/>
                 </p>
-                <p>Last name: <%=client.getLastName()%>
+                <p>Last name: <c:out value="${client.lastName}"/>
                 </p>
-                <p>Passport series: <%=client.getPassportSeries()%>
+                <p>Passport series: <c:out value="${client.passportSeries}"/>
                 </p>
-                <p>Passport number: <%=client.getPassportNumber()%>
+                <p>Passport number: <c:out value="${client.phoneNumber}"/>
                 </p>
-                <p>Phone Number: <%=client.getPhoneNumber()%>
+                <p>Phone Number: <c:out value="${client.phoneNumber}"/>
                 </p>
-                <p>Email: <%=client.getEmail()%>
+                <p>Email: <c:out value="${client.email}"/>
                 </p>
                 <p>You can change them <a href="editClientData.jsp">here</a>.</p>
-                <%if (client.getPets() != null) {%>
-                <p>Here is list of your pets that are registered at the clinic:</p>
-                <table border="1">
-                    <tr>
-                        <td>Nickname</td>
-                        <td>Age</td>
-                        <td>Kind</td>
-                        <td>Active diseases</td>
-                    </tr>
-                    <%for (Pet pet : client.getPets()) {%>
-                    <tr>
-                        <td><%=pet.getNickname()%>
-                        </td>
-                        <td><%=pet.getAge()%>
-                        </td>
-                        <td><%=pet.getKind().getName()%>
-                        </td>
-                        <td>
-                                    <%for (Disease disease : pet.getDiseases()) {%>
-                                    <%if (disease.isActive()) {%>
-                                    <%=disease.getName()%><br>
-                                    <%}%>
-                                    <% }%>
-
-                        <td>
-                            <form method="post" action="controller?action=removePetFromClient">
-                                <input type="hidden" name="petId" value="<%pet.getId();%>">
-                                <input type="submit" value="remove">
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" action="controller?action=bookAVisit">
-                                <input type="hidden" name="petId" value="<%pet.getId();%>">
-                                <input type="submit" value="visit list">
-                            </form>
-                        </td>
-                    </tr>
-                    <% }%>
-                </table>
-                <%}%>
+                <c:if test="${client.pets!=null}">
+                    <p>Here is list of your pets that are registered at the clinic:</p>
+                    <table border="1">
+                        <tr>
+                            <td>Nickname</td>
+                            <td>Age</td>
+                            <td>Kind</td>
+                            <td>Active diseases</td>
+                        </tr>
+                        <c:forEach items="${client.pets}" var="pet">
+                            <tr>
+                                <td><c:out value="${pet.nickname}"/>
+                                </td>
+                                <td><c:out value="${pet.age}"/>
+                                </td>
+                                <td><c:out value="${pet.kind.name}"/>
+                                </td>
+                                <td>
+                                    <c:forEach items="${pet.diseases}" var="disease">
+                                    <c:if test="${disease.active}">
+                                        <c:out value="${disease.name}"/>
+                                    </c:if>
+                                    </c:forEach>
+                                <td>
+                                    <form method="post" action="controller?action=removePetFromClient">
+                                        <input type="hidden" name="petId" value="${pet.id}">
+                                        <input type="submit" value="remove">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" action="controller?action=bookAVisit">
+                                        <input type="hidden" name="petId" value="${pet.id}">
+                                        <input type="submit" value="visit list">
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </c:if>
                 <p><a href="controller?action=addPetToClient">+add a new pet</a></p>
             </c:when>
-            <c:when test="${sessionScope.user.client}">
+            <c:when test="${user.client}">
                 <p>You aren't registered as a client!</p>
                 <p>You can enter information about yourself <a href="controller?action=becomeAClient">here</a>.</p>
                 <p>This will allow you to add your pets and book them on a visit to the vet.</p>
             </c:when>
-            <c:when test="${sessionScope.isAdmin==true}">
+            <c:when test="${isAdmin==true}">
                 <p>You are administrator of this application!</p>
                 <p>You can go to the <a href="controller?action=admin">admin panel</a>!</p>
             </c:when>
