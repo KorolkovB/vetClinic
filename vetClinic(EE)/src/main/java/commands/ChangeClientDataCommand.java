@@ -3,13 +3,15 @@ package commands;
 import dao.DAOFactory;
 import dao.entitiesDAO.ClientDAO;
 import entities.Client;
+import entities.User;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class ChangeClientDataCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        Client currentClient = (Client) request.getSession().getAttribute("client");
+        User user = (User) request.getSession().getAttribute("user");
+        Client currentClient = user.getClient();
 
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
@@ -31,7 +33,7 @@ public class ChangeClientDataCommand implements Command {
         ClientDAO clientDAO = daoFactory.getClientDAO();
         int result = clientDAO.updateClient(newClient);
         if (result==1) {
-            request.getSession().setAttribute("client", newClient);
+            user.setClient(newClient);
         }
         request.setAttribute("updated", "Your personal data successfully updated! At the moment, they are as" +
                 " follows:");

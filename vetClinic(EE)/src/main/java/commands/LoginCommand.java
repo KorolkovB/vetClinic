@@ -18,7 +18,6 @@ public class LoginCommand implements Command {
         DAOFactory daoFactory = DAOFactory.getInstance();
         UserDAO userDAO = daoFactory.getUserDAO();
         User user = userDAO.getUser(login, password);
-        String page = null;
 
         if (user != null) {
             request.getSession().setAttribute("user", user);
@@ -26,30 +25,23 @@ public class LoginCommand implements Command {
                 VeterinarianDAO veterinarianDAO = daoFactory.getVeterinarianDAO();
                 Veterinarian vet = veterinarianDAO.getVetById(user.getVeterinarianId());
                 user.setVeterinarian(vet);
-                request.getSession().setAttribute("vet", vet);
-                page = "controller?action=main";
-            } else if (user.isClient()) {
+            } else if (user.isClientt()) {
                 ClientDAO clientDAO = daoFactory.getClientDAO();
                 Client client = clientDAO.getClientById(user.getClientId());
-                user.setClient(client);
-                request.getSession().setAttribute("client", client);
 
                 PetDAO petDAO = daoFactory.getPetDAO();
                 List<Pet> pets = petDAO.getAllPets(client);
                 DiseaseDAO diseaseDAO = daoFactory.getDiseaseDAO();
-                for (int i = 0; i < pets.size(); i++) {
-                    pets.get(i).setDiseases(diseaseDAO.getAllDiseases(pets.get(i)));
+                for (Pet pet : pets) {
+                    pet.setDiseases(diseaseDAO.getAllDiseases(pet));
                 }
                 client.setPets(pets);
-                page = "controller?action=main";
-            } else if (user.isAdmin()) {
-                request.getSession().setAttribute("isAdmin", true);
-                page = "controller?action=main";
+                user.setClient(client);
             }
+            return "controller?action=main";
         } else {
             request.setAttribute("notFound", "There is no user with such username and password.");
-            page = "login.jsp";
+            return "login.jsp";
         }
-        return page;
     }
 }

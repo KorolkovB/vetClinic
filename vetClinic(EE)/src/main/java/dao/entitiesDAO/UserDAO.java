@@ -2,7 +2,6 @@ package dao.entitiesDAO;
 
 import dao.AbstractDAO;
 import entities.User;
-import entities.Veterinarian;
 import utilities.PathConverter;
 
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class UserDAO extends AbstractDAO {
             statement.setString(2, user.getPassword());
             statement.setBoolean(3, user.isAdmin());
             statement.setBoolean(4, user.isVet());
-            statement.setBoolean(5, user.isClient());
+            statement.setBoolean(5, user.isClientt());
             statement.executeUpdate();
 
             ResultSet rs = statement.executeQuery("SELECT MAX(id) FROM `user`");
@@ -82,7 +81,7 @@ public class UserDAO extends AbstractDAO {
             user.setPassword(rs.getString("password"));
             user.setAdmin(rs.getBoolean("isAdmin"));
             user.setVet(rs.getBoolean("isVet"));
-            user.setClient(rs.getBoolean("isClient"));
+            user.setClientt(rs.getBoolean("isClient"));
             user.setVeterinarianId(rs.getInt("vetId"));
             user.setClientId(rs.getInt("clientId"));
         } catch (IOException | ClassNotFoundException | SQLException e) {
@@ -119,7 +118,7 @@ public class UserDAO extends AbstractDAO {
             user.setPassword(rs.getString("password"));
             user.setAdmin(rs.getBoolean("isAdmin"));
             user.setVet(rs.getBoolean("isVet"));
-            user.setClient(rs.getBoolean("isClient"));
+            user.setClientt(rs.getBoolean("isClient"));
             user.setVeterinarianId(rs.getInt("vetId"));
             user.setClientId(rs.getInt("clientId"));
         } catch (IOException | ClassNotFoundException | SQLException e) {

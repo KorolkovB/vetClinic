@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 public class RegisterCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        String page = null;
         String login = request.getParameter("login");
         String password = request.getParameter("password");
+
         DAOFactory daoFactory = DAOFactory.getInstance();
         UserDAO userDAO = daoFactory.getUserDAO();
         User user = userDAO.getUser(login);
@@ -19,15 +19,13 @@ public class RegisterCommand implements Command {
             user = new User();
             user.setLogin(login);
             user.setPassword(password);
-            user.setClient(true);
-
+            user.setClientt(true);
             userDAO.addUser(user);
             request.setAttribute("registrationOk", "Registration was successful. Now you can log in!");
-            page = "login.jsp";
+            return "login.jsp";
         } else {
             request.setAttribute("userExist", "A user with the same name already exists.");
-            page = "register.jsp";
+            return "register.jsp";
         }
-        return page;
     }
 }

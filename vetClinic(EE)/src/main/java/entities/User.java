@@ -8,7 +8,7 @@ public class User {
     private String password;
     private boolean isAdmin;
     private boolean isVet;
-    private boolean isClient;
+    private boolean isClientt;
     private int veterinarianId;
     private int clientId;
     private Veterinarian veterinarian;
@@ -73,12 +73,12 @@ public class User {
         isVet = vet;
     }
 
-    public boolean isClient() {
-        return isClient;
+    public boolean isClientt() {
+        return isClientt;
     }
 
-    public void setClient(boolean client) {
-        isClient = client;
+    public void setClientt(boolean clientt) {
+        isClientt = clientt;
     }
 
     public Veterinarian getVeterinarian() {

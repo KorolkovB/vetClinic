@@ -13,9 +13,9 @@
 </head>
 <body>
 <c:set var="user" value="${sessionScope.user}"/>
-<c:set var="client" value="${sessionScope.client}"/>
-<c:set var="vet" value="${sessionScope.vet}"/>
-<c:set var="isAdmin" value="${sessionScope.isAdmin}"/>
+<c:set var="client" value="${user.client}"/>
+<c:set var="vet" value="${user.veterinarian}"/>
+<c:set var="isAdmin" value="${user.admin}"/>
 <c:set var="updated" value="${requestScope.updated}"/>
 
 <c:choose>
@@ -94,7 +94,7 @@
                 </c:if>
                 <p><a href="controller?action=addPetToClient">+add a new pet</a></p>
             </c:when>
-            <c:when test="${user.client}">
+            <c:when test="${user.clientt}">
                 <p>You aren't registered as a client!</p>
                 <p>You can enter information about yourself <a href="controller?action=becomeAClient">here</a>.</p>
                 <p>This will allow you to add your pets and book them on a visit to the vet.</p>
