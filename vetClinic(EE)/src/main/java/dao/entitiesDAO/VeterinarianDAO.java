@@ -33,7 +33,7 @@ public class VeterinarianDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Veterinarian/" +
-                    "getVetById.txt");
+                    "getVetById.sql");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();

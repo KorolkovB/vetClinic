@@ -24,7 +24,8 @@
               size="6"/></p>
     <p><input type="text" name="phoneNumber" value="${client.phoneNumber}" maxlength="9" minlength="9" size="9"/></p>
     <p><input type="text" name="email" value="${client.email}" maxlength="45" minlength="0" size="45"/></p>
-    <p><input type="submit" name="Change"/></p>
+    <p><input type="submit" name="Change" onclick="return confirm('Commit this changes?')"/></p>
+    <p><a href="controller?action=main">back to main page</a></p>
 </form>
 </body>
 </html>

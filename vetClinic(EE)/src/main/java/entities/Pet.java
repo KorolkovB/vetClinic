@@ -10,6 +10,8 @@ public class Pet {
     private List<Disease> diseases;
     private List<Visit> visits;
     private Kind kind;
+    private boolean isDeleted;
+    private Client client;
 
     public Pet() {
     }
@@ -60,6 +62,22 @@ public class Pet {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override

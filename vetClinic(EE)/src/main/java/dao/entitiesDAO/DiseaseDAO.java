@@ -37,7 +37,7 @@ public class DiseaseDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Disease/" +
-                    "getAllDiseasesByPet");
+                    "getAllDiseasesByPet.sql");
             String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);

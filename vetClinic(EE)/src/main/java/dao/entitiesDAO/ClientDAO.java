@@ -34,7 +34,7 @@ public class ClientDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Client/" +
-                    "getClientById.txt");
+                    "getClientById.sql");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();
@@ -68,7 +68,7 @@ public class ClientDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Client/" +
-                    "updateClientById");
+                    "updateClientById.sql");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();

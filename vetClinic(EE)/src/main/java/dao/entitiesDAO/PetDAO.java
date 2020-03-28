@@ -34,7 +34,7 @@ public class PetDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/" +
-                    "getAllPetsByClient.txt");
+                    "getAllPetsByClient.sql");
             String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);
@@ -61,5 +61,52 @@ public class PetDAO extends AbstractDAO {
             closeConnectionAndStatement(connection, statement);
         }
         return pets;
+    }
+
+    public void removePet(int petId){
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/" +
+                    "removePetById.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+            statement.setInt(1, petId);
+            statement.executeUpdate();
+        } catch (IOException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
+    }
+
+    public void addPet(Pet pet) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Pet/addNewPet.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+
+            statement.setInt(1, pet.getKind().getId());
+            statement.setString(2, pet.getNickname());
+            statement.setInt(3, pet.getAge());
+            statement.setInt(4, pet.getClient().getId());
+            statement.executeUpdate();
+
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) FROM `pet`");
+            rs.next();
+            int petId = rs.getInt(1);
+            pet.setId(petId);
+
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
     }
 }

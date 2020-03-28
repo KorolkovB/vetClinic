@@ -1,4 +1,4 @@
-<%@ page import="entities.*" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Viktor_Korolkov
   Date: 16.03.2020
@@ -63,36 +63,39 @@
                             <td>Active diseases</td>
                         </tr>
                         <c:forEach items="${client.pets}" var="pet">
-                            <tr>
-                                <td><c:out value="${pet.nickname}"/>
-                                </td>
-                                <td><c:out value="${pet.age}"/>
-                                </td>
-                                <td><c:out value="${pet.kind.name}"/>
-                                </td>
-                                <td>
-                                    <c:forEach items="${pet.diseases}" var="disease">
-                                    <c:if test="${disease.active}">
-                                        <c:out value="${disease.name}"/>
-                                    </c:if>
-                                    </c:forEach>
-                                <td>
-                                    <form method="post" action="controller?action=removePetFromClient">
-                                        <input type="hidden" name="petId" value="${pet.id}">
-                                        <input type="submit" value="remove">
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method="post" action="controller?action=bookAVisit">
-                                        <input type="hidden" name="petId" value="${pet.id}">
-                                        <input type="submit" value="visit list">
-                                    </form>
-                                </td>
-                            </tr>
+                            <c:if test="${!pet.deleted}">
+                                <tr>
+                                    <td><c:out value="${pet.nickname}"/>
+                                    </td>
+                                    <td><c:out value="${pet.age}"/>
+                                    </td>
+                                    <td><c:out value="${pet.kind.name}"/>
+                                    </td>
+                                    <td>
+                                        <c:forEach items="${pet.diseases}" var="disease">
+                                        <c:if test="${disease.active}">
+                                            <c:out value="${disease.name}"/><br>
+                                        </c:if>
+                                        </c:forEach>
+                                    <td>
+                                        <form method="post" action="controller?action=removePet">
+                                            <input type="hidden" name="petId" value="${pet.id}">
+                                            <input type="submit" value="remove"
+                                                   onclick="return confirm('Remove this pet?')">
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="controller?action=bookAVisit">
+                                            <input type="hidden" name="petId" value="${pet.id}">
+                                            <input type="submit" value="visit list">
+                                        </form>
+                                    </td>
+                                </tr>
+                            </c:if>
                         </c:forEach>
                     </table>
                 </c:if>
-                <p><a href="controller?action=addPetToClient">+add a new pet</a></p>
+                <p><a href="addingPet.jsp">+add a new pet</a></p>
             </c:when>
             <c:when test="${user.clientt}">
                 <p>You aren't registered as a client!</p>
@@ -104,6 +107,8 @@
                 <p>You can go to the <a href="controller?action=admin">admin panel</a>!</p>
             </c:when>
         </c:choose>
+        <br>
+        <p><a href="controller?action=logout">Logout</a></p>
     </c:when>
     <c:otherwise>
         <p><a href="login.jsp">Login</a></p>

@@ -30,7 +30,7 @@ public class UserDAO extends AbstractDAO {
         PreparedStatement statement = null;
 
         try {
-            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/addUser.txt");
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/addUser.sql");
             String text = Files.readString(Paths.get(absolutePath));
             connection = getConnection();
             statement = connection.prepareStatement(text);
@@ -61,7 +61,7 @@ public class UserDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/" +
-                    "getUserByLoginAndPass.txt");
+                    "getUserByLoginAndPass.sql");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();
@@ -99,7 +99,7 @@ public class UserDAO extends AbstractDAO {
 
         try {
             String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/" +
-                    "getUserByLogin");
+                    "getUserByLogin.sql");
             String text = Files.readString(Paths.get(absolutePath));
 
             connection = getConnection();

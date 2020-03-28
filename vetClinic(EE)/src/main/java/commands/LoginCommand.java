@@ -28,7 +28,6 @@ public class LoginCommand implements Command {
             } else if (user.isClientt()) {
                 ClientDAO clientDAO = daoFactory.getClientDAO();
                 Client client = clientDAO.getClientById(user.getClientId());
-
                 PetDAO petDAO = daoFactory.getPetDAO();
                 List<Pet> pets = petDAO.getAllPets(client);
                 DiseaseDAO diseaseDAO = daoFactory.getDiseaseDAO();
@@ -37,6 +36,8 @@ public class LoginCommand implements Command {
                 }
                 client.setPets(pets);
                 user.setClient(client);
+                KindDAO kindDAO = daoFactory.getKindDAO();
+                request.getSession().setAttribute("kinds",kindDAO.getAllKinds());
             }
             return "controller?action=main";
         } else {

@@ -2,9 +2,10 @@ package commands;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class MainCommand implements Command {
+public class LogoutCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return "main.jsp";
+        request.getSession().removeAttribute("user");
+        return "controller?action=main";
     }
 }

@@ -23,6 +23,9 @@ public class CommandFactory {
         commands.put("login", new LoginCommand());
         commands.put("register", new RegisterCommand());
         commands.put("changeClientData", new ChangeClientDataCommand());
+        commands.put("logout", new LogoutCommand());
+        commands.put("removePet", new RemovePetFromClientCommand());
+        commands.put("addNewPet", new AddPetToClientCommand());
     }
 
     public Command getCommand(HttpServletRequest request){
