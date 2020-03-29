@@ -94,9 +94,10 @@ CREATE TABLE IF NOT EXISTS visit
     id            INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     petId         INT UNSIGNED NOT NULL,
     vetId         INT UNSIGNED NOT NULL,
-    roomId        INT UNSIGNED NOT NULL,
+    roomId        INT UNSIGNED,
     visitDateTime datetime     NOT NULL,
-    visited       BOOLEAN,
+    visited       BOOLEAN default false,
+    canceledByClient       BOOLEAN default false,
     FOREIGN KEY (petId) REFERENCES pet (id),
     FOREIGN KEY (vetId) REFERENCES veterinarian (id),
     FOREIGN KEY (roomId) REFERENCES room (id)
@@ -119,5 +120,3 @@ CREATE TABLE IF NOT EXISTS `user`
     UNIQUE (vetId),
     UNIQUE (clientId)
 );
-
-

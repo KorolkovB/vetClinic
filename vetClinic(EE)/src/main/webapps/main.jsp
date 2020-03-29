@@ -85,7 +85,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form method="post" action="controller?action=bookAVisit">
+                                        <form method="post" action="controller?action=viewPetVisits">
                                             <input type="hidden" name="petId" value="${pet.id}">
                                             <input type="submit" value="visit list">
                                         </form>

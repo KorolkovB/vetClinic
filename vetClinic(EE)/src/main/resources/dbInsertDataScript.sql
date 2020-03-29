@@ -67,12 +67,13 @@ VALUES (1, 'Babur', 4, 1, 0),
        (5, 'Swift', 10, 5, 0);
 
 INSERT INTO `vetclinic`.`visit`
-    (`petId`, `vetId`, `roomId`, `visitDateTime`, `visited`)
-VALUES (1, 2, 5, '2019-09-23 10:30:00', true),
-       (2, 3, 4, '2019-10-11 15:40:00', true),
-       (3, 1, 3, '2019-12-10 08:10:00', false),
-       (4, 5, 2, '2020-01-28 10:30:00', true),
-       (5, 4, 1, '2020-04-01 10:30:00', true);
+(`petId`, `vetId`, `roomId`, `visitDateTime`, `visited`, `canceledByClient`)
+VALUES (1, 2, 5, '2019-09-23 10:30:00', true, false),
+       (1, 2, 2, '2021-09-23 10:30:00', false, false),
+       (2, 3, 4, '2019-10-11 15:40:00', true, false),
+       (3, 1, null, '2019-12-10 08:10:00', false, true),
+       (4, 5, 2, '2020-01-28 10:30:00', true, false),
+       (5, 4, 1, '2020-04-01 10:30:00', true, false);
 
 INSERT INTO `vetclinic`.`pet_disease`
     (`petId`, `diseaseId`, `isActive`, `diagnosisDate`)

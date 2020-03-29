@@ -11,8 +11,8 @@ public class CommandFactory {
     public CommandFactory() {
     }
 
-    public static CommandFactory commandFactory(){
-        if(factory == null){
+    public static CommandFactory commandFactory() {
+        if (factory == null) {
             factory = new CommandFactory();
         }
         return factory;
@@ -26,9 +26,10 @@ public class CommandFactory {
         commands.put("logout", new LogoutCommand());
         commands.put("removePet", new RemovePetFromClientCommand());
         commands.put("addNewPet", new AddPetToClientCommand());
+        commands.put("viewPetVisits", new ViewPetVisitsCommand());
     }
 
-    public Command getCommand(HttpServletRequest request){
+    public Command getCommand(HttpServletRequest request) {
         String action = request.getParameter("action");
         Command command = commands.get(action);
         return command;

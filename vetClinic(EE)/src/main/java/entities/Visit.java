@@ -7,8 +7,14 @@ public class Visit {
     private int id;
     private Date visitDateTime;
     private boolean visited;
+    private Veterinarian vet;
+    private Pet pet;
 
     public Visit() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -29,6 +35,22 @@ public class Visit {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+
+    public Veterinarian getVet() {
+        return vet;
+    }
+
+    public void setVet(Veterinarian vet) {
+        this.vet = vet;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 
     @Override

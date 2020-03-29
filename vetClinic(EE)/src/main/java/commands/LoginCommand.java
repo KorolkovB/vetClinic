@@ -18,11 +18,11 @@ public class LoginCommand implements Command {
         DAOFactory daoFactory = DAOFactory.getInstance();
         UserDAO userDAO = daoFactory.getUserDAO();
         User user = userDAO.getUser(login, password);
+        VeterinarianDAO veterinarianDAO = daoFactory.getVeterinarianDAO();
 
         if (user != null) {
             request.getSession().setAttribute("user", user);
             if (user.isVet()) {
-                VeterinarianDAO veterinarianDAO = daoFactory.getVeterinarianDAO();
                 Veterinarian vet = veterinarianDAO.getVetById(user.getVeterinarianId());
                 user.setVeterinarian(vet);
             } else if (user.isClientt()) {
@@ -38,6 +38,7 @@ public class LoginCommand implements Command {
                 user.setClient(client);
                 KindDAO kindDAO = daoFactory.getKindDAO();
                 request.getSession().setAttribute("kinds",kindDAO.getAllKinds());
+                request.getSession().setAttribute("vets",veterinarianDAO.getAllVets());
             }
             return "controller?action=main";
         } else {
