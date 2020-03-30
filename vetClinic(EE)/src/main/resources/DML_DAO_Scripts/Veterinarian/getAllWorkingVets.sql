@@ -4,5 +4,5 @@ SELECT `veterinarian`.`id`,
        `veterinarian`.`hiringDate`,
        `veterinarian`.`dismissalDate`
 FROM `vetclinic`.`veterinarian`
-WHERE `veterinarian`.`dismissalDate` > now()
+WHERE (`veterinarian`.`dismissalDate` > now() or `veterinarian`.`dismissalDate` is null)
   and `veterinarian`.`hiringDate` < now()

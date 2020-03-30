@@ -7,12 +7,11 @@ import utilities.PathConverter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class VisitDAO extends AbstractDAO {
     private static VisitDAO instance;
@@ -68,7 +67,7 @@ public class VisitDAO extends AbstractDAO {
         return visits;
     }
 
-    public void removeVisit(int visitId){
+    public void removeVisit(int visitId) {
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -81,6 +80,36 @@ public class VisitDAO extends AbstractDAO {
             statement.setInt(1, visitId);
             statement.executeUpdate();
         } catch (IOException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
+    }
+
+    public void addVisit(Visit visit) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Visit/" +
+                    "addVisit.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+
+            statement.setInt(1, visit.getPet().getId());
+            statement.setInt(2, visit.getVet().getId());
+
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            statement.setString(3, simpleDateFormat.format(visit.getVisitDateTime()));
+            statement.executeUpdate();
+
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) FROM `visit`");
+            rs.next();
+            int visitId = rs.getInt(1);
+            visit.setId(visitId);
+        } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
         } finally {
             closeConnectionAndStatement(connection, statement);
