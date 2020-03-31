@@ -12,6 +12,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ViewPetVisitsCommand implements Command {
     @Override
@@ -30,7 +32,10 @@ public class ViewPetVisitsCommand implements Command {
             pet.setId(petId);
 
             Veterinarian vet = new Veterinarian();
-            vet.setId(Integer.parseInt(request.getParameter("vetId")));
+            Pattern pattern = Pattern.compile("\\d+");
+            Matcher matcher = pattern.matcher(request.getParameter("vet"));
+            matcher.find();
+            vet.setId(Integer.parseInt(matcher.group()));
 
             Visit visit = new Visit();
             visit.setPet(pet);
