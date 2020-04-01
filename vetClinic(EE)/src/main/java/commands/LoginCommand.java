@@ -2,10 +2,7 @@ package commands;
 
 import dao.DAOFactory;
 import dao.entitiesDAO.*;
-import entities.Client;
-import entities.Pet;
-import entities.User;
-import entities.Veterinarian;
+import entities.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -25,7 +22,7 @@ public class LoginCommand implements Command {
             if (user.isVet()) {
                 Veterinarian vet = veterinarianDAO.getVetById(user.getVeterinarianId());
                 user.setVeterinarian(vet);
-            } else if (user.isClientt()) {
+            } else if (user.isClientt() && user.getClientId() != 0) {
                 ClientDAO clientDAO = daoFactory.getClientDAO();
                 Client client = clientDAO.getClientById(user.getClientId());
                 PetDAO petDAO = daoFactory.getPetDAO();
@@ -37,8 +34,16 @@ public class LoginCommand implements Command {
                 client.setPets(pets);
                 user.setClient(client);
                 KindDAO kindDAO = daoFactory.getKindDAO();
-                request.getSession().setAttribute("kinds",kindDAO.getAllKinds());
-                request.getSession().setAttribute("vets",veterinarianDAO.getAllVets());
+                request.getSession().setAttribute("kinds", kindDAO.getAllKinds());
+
+                List<Veterinarian> veterinarians = veterinarianDAO.getAllVets();
+                SpecializationDAO specializationDAO = daoFactory.getSpecializationDAO();
+                for (Veterinarian vet :
+                        veterinarians) {
+                    List<Specialization> specializations = specializationDAO.getAllSpecializations(vet);
+                    vet.setSpecializations(specializations);
+                }
+                request.getSession().setAttribute("vets", veterinarians);
             }
             return "controller?action=main";
         } else {

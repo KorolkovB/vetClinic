@@ -128,4 +128,25 @@ public class UserDAO extends AbstractDAO {
         }
         return user;
     }
+
+    public void setClientToUser(User user) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/User/" +
+                    "setClientToUser.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+
+            statement.setInt(1, user.getClient().getId());
+            statement.setInt(2, user.getId());
+            statement.executeUpdate();
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
+    }
 }

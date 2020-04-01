@@ -3,6 +3,7 @@ package dao.entitiesDAO;
 
 import dao.AbstractDAO;
 import entities.Client;
+import entities.Pet;
 import entities.Veterinarian;
 import utilities.PathConverter;
 
@@ -87,7 +88,38 @@ public class ClientDAO extends AbstractDAO {
         } finally {
             closeConnectionAndStatement(connection, statement);
         }
+        return result;
+    }
 
+    public int addClient(Client client) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        int result = 0;
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Client/" +
+                    "addClient.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+
+            statement.setString(1, client.getFirstName());
+            statement.setString(2, client.getLastName());
+            statement.setInt(3, client.getPassportSeries());
+            statement.setInt(4, client.getPassportNumber());
+            statement.setInt(5, client.getPhoneNumber());
+            statement.setString(6, client.getEmail());
+            result = statement.executeUpdate();
+
+            ResultSet rs = statement.executeQuery("SELECT MAX(id) FROM `client`");
+            rs.next();
+            int clientId = rs.getInt(1);
+            client.setId(clientId);
+
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
         return result;
     }
 

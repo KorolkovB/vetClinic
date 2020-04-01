@@ -15,7 +15,12 @@
     <p>Vet:
         <select required name="vet" size="1">
             <c:forEach items="${vets}" var="vet">
-                <option>${vet.firstName} ${vet.lastName} (${vet.id})</option>
+                <option>(
+                    <c:forEach items="${vet.specializations}" var="spec">
+                        ${spec.name}
+                    </c:forEach>
+                    ) ${vet.firstName} ${vet.lastName} (${vet.id})
+                </option>
             </c:forEach>
         </select>
     </p>

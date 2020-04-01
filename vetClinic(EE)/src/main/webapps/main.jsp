@@ -10,6 +10,7 @@
 <c:set var="vet" value="${user.veterinarian}"/>
 <c:set var="isAdmin" value="${user.admin}"/>
 <c:set var="updated" value="${requestScope.updated}"/>
+<c:set var="added" value="${requestScope.added}"/>
 
 <c:choose>
     <c:when test="${user!=null}">
@@ -27,6 +28,10 @@
                 <c:choose>
                     <c:when test="${updated!=null}">
                         <p><strong> <c:out value="${updated}"/>
+                        </strong></p>
+                    </c:when>
+                    <c:when test="${added!=null}">
+                        <p><strong> <c:out value="${added}"/>
                         </strong></p>
                     </c:when>
                     <c:otherwise>
@@ -92,7 +97,7 @@
             </c:when>
             <c:when test="${user.clientt}">
                 <p>You aren't registered as a client!</p>
-                <p>You can enter information about yourself <a href="controller?action=becomeAClient">here</a>.</p>
+                <p>You can enter information about yourself <a href="editClientData.jsp">here</a>.</p>
                 <p>This will allow you to add your pets and book them on a visit to the vet.</p>
             </c:when>
             <c:when test="${isAdmin==true}">

@@ -26,7 +26,7 @@ INSERT INTO `vetclinic`.`specialization`
     (`name`)
 VALUES ('Therapist'),
        ('Surgeon'),
-       ('Treatment room'),
+       ('Treatment'),
        ('Anesthetist'),
        ('ENT doctor');
 
