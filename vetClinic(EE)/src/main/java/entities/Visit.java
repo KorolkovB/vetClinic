@@ -1,6 +1,5 @@
 package entities;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,6 +9,7 @@ public class Visit {
     private boolean visited;
     private Veterinarian vet;
     private Pet pet;
+    private Room room;
 
     public Visit() {
     }
@@ -54,7 +54,13 @@ public class Visit {
         this.pet = pet;
     }
 
+    public Room getRoom() {
+        return room;
+    }
 
+    public void setRoom(Room room) {
+        this.room = room;
+    }
 
     @Override
     public boolean equals(Object o) {

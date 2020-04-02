@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -49,7 +48,7 @@ public class ViewPetVisitsCommand implements Command {
             }
             visitDAO.addVisit(visit);
         }
-        List<Visit> visits = visitDAO.getAllVisits(petId);
+        List<Visit> visits = visitDAO.getVisits(petId);
         request.setAttribute("visits", visits);
         request.setAttribute("petId", petId);
         return "petVisits.jsp";

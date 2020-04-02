@@ -28,6 +28,7 @@ public class CommandFactory {
         commands.put("addNewPet", new AddPetToClientCommand());
         commands.put("viewPetVisits", new ViewPetVisitsCommand());
         commands.put("addVisitToPet", new AddVisitToPetCommand());
+        commands.put("openVetPanel", new OpenVetPanelCommand());
     }
 
     public Command getCommand(HttpServletRequest request) {

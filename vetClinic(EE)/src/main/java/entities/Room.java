@@ -11,6 +11,10 @@ public class Room {
     public Room() {
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public List<Visit> getVisits() {
         return visits;
     }

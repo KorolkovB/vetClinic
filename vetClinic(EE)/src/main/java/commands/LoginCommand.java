@@ -44,6 +44,9 @@ public class LoginCommand implements Command {
                     vet.setSpecializations(specializations);
                 }
                 request.getSession().setAttribute("vets", veterinarians);
+
+                RoomDAO roomDAO = daoFactory.getRoomDAO();
+                request.getSession().setAttribute("rooms",roomDAO.getAllRooms());
             }
             return "controller?action=main";
         } else {

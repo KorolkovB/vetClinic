@@ -20,7 +20,7 @@
                 <p>You are registered in the vetclinic as a veterinarian
                     <c:out value="${vet.firstName}"/>
                     <c:out value="${vet.lastName}"/>.</p>
-                <p>You can assign or remove a visit of the client at the <a href="controller?action=openVetPanel">veterinarian
+                <p>You can view and edit visits to you at the <a href="controller?action=openVetPanel">veterinarian
                     panel</a>!</p>
             </c:when>
             <c:when test="${client!=null}">

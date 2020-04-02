@@ -26,7 +26,7 @@ public class VisitDAO extends AbstractDAO {
         return instance;
     }
 
-    public List<Visit> getAllVisits(int petId) {
+    public List<Visit> getVisits(int petId) {
         Connection connection = null;
         PreparedStatement statement = null;
         List<Visit> visits = null;
@@ -57,6 +57,51 @@ public class VisitDAO extends AbstractDAO {
 
                 visit.setVet(vet);
                 visit.setPet(pet);
+                visits.add(visit);
+            }
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
+        return visits;
+    }
+
+    public List<Visit> getVisits(Veterinarian vet) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        List<Visit> visits = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Visit/" +
+                    "getVisitsOfVet.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+            statement.setInt(1, vet.getId());
+
+            ResultSet rs = statement.executeQuery();
+            visits = new ArrayList<>();
+            while (rs.next()) {
+                Client client = new Client();
+                Kind kind = new Kind();
+                Pet pet = new Pet();
+                Room room = new Room();
+                Visit visit = new Visit();
+
+                client.setFirstName(rs.getString("clientFirstName"));
+                client.setFirstName(rs.getString("clientLastName"));
+                kind.setName(rs.getString("petKind"));
+                pet.setNickname(rs.getString("petNickname"));
+                pet.setAge(rs.getInt("petAge"));
+                room.setName(rs.getString("roomName"));
+                visit.setVisitDateTime(rs.getTimestamp("visitDateTime"));
+                visit.setVisited(rs.getBoolean("visited"));
+
+                pet.setKind(kind);
+                pet.setClient(client);
+                visit.setPet(pet);
+                visit.setRoom(room);
                 visits.add(visit);
             }
         } catch (ClassNotFoundException | SQLException | IOException e) {
