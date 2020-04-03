@@ -5,28 +5,80 @@
     <title>Vet panel</title>
 </head>
 <body>
-<p>Your visits:</p>
 <c:set var="visits" value="${sessionScope.user.veterinarian.visits}"/>
+<c:set var="diseases" value="${sessionScope.diseases}"/>
+<p>Your new visits:</p>
 <table border="1">
     <tr>
         <td>Client name</td>
         <td>Pet kind</td>
         <td>Pet nickname</td>
         <td>Pet age</td>
+        <td>Pet diseases</td>
         <td>Room</td>
         <td>Visit date</td>
         <td>Visited</td>
     </tr>
-    <c:forEach items="${visits}" var="visit">
-        <tr>
-            <td>${visit.pet.client.firstName} ${visit.pet.client.lastName}</td>
-            <td>${visit.pet.kind.name}</td>
-            <td>${visit.pet.nickname}</td>
-            <td>${visit.pet.age}</td>
-            <td>${visit.room.name}</td>
-            <td>${visit.visitDateTime}</td>
-            <td>${visit.visited}</td>
-        </tr>
+    <c:forEach items="${visits}" var="newVisit">
+        <c:choose>
+            <c:when test="${newVisit.visited==false}">
+                <tr>
+                    <td>${visit.pet.client.firstName} ${visit.pet.client.lastName}</td>
+                    <td>${visit.pet.kind.name}</td>
+                    <td>${visit.pet.nickname}</td>
+                    <td>${visit.pet.age}</td>
+                    <td>
+                        <form method="post" action="controller?action=viewPetVisits">
+                            <select required name="disease" size="1">
+                                <c:forEach items="${diseases}" var="disease">
+                                    <option>${disease.name} (${disease.id})</option>
+                                </c:forEach>
+                            </select>
+                        </form>
+                    </td>
+                    <td>${visit.room.name}</td>
+                    <td>${visit.visitDateTime}</td>
+                    <td>${visit.visited}</td>
+                </tr>
+            </c:when>
+        </c:choose>
+    </c:forEach>
+</table>
+
+
+
+
+<p>Your previous visits:</p>
+<table border="1">
+    <tr>
+        <td>Client name</td>
+        <td>Pet kind</td>
+        <td>Pet nickname</td>
+        <td>Pet age</td>
+        <td>Pet diseases</td>
+        <td>Room</td>
+        <td>Visit date</td>
+        <td>Visited</td>
+    </tr>
+    <c:forEach items="${visits}" var="previousVisit">
+        <c:choose>
+            <c:when test="${previousVisit.visited}">
+                <tr>
+                    <td>${previousVisit.pet.client.firstName} ${previousVisit.pet.client.lastName}</td>
+                    <td>${previousVisit.pet.kind.name}</td>
+                    <td>${previousVisit.pet.nickname}</td>
+                    <td>${previousVisit.pet.age}</td>
+                    <td>
+                        <c:forEach items="${previousVisit.pet.diseases}" var="disease">
+                            ${disease}
+                        </c:forEach>
+                    </td>
+                    <td>${previousVisit.room.name}</td>
+                    <td>${previousVisit.visitDateTime}</td>
+                    <td>${previousVisit.visited}</td>
+                </tr>
+            </c:when>
+        </c:choose>
     </c:forEach>
 </table>
 </body>

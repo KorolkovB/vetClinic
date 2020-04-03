@@ -47,6 +47,7 @@ public class LoginCommand implements Command {
 
                 RoomDAO roomDAO = daoFactory.getRoomDAO();
                 request.getSession().setAttribute("rooms",roomDAO.getAllRooms());
+                request.getSession().setAttribute("diseases",diseaseDAO.getAllDiseases());
             }
             return "controller?action=main";
         } else {

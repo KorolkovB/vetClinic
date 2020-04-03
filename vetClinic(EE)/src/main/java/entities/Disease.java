@@ -14,6 +14,10 @@ public class Disease {
     public Disease() {
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public boolean isActive() {
         return isActive;
     }

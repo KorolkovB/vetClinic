@@ -30,6 +30,33 @@ public class DiseaseDAO extends AbstractDAO {
         return instance;
     }
 
+    public List<Disease> getAllDiseases() {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        List<Disease> diseases = null;
+
+        try {
+            String absolutePath = PathConverter.getAbsolutePathOfResource("DML_DAO_Scripts/Disease/" +
+                    "getAllDiseases.sql");
+            String text = Files.readString(Paths.get(absolutePath));
+            connection = getConnection();
+            statement = connection.prepareStatement(text);
+            ResultSet rs = statement.executeQuery();
+            diseases = new ArrayList<>();
+            while (rs.next()) {
+                Disease disease = new Disease();
+                disease.setId(rs.getInt("id"));
+                disease.setName(rs.getString("name"));
+                diseases.add(disease);
+            }
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndStatement(connection, statement);
+        }
+        return diseases;
+    }
+
     public List<Disease> getAllDiseases(Pet pet) {
         Connection connection = null;
         PreparedStatement statement = null;
