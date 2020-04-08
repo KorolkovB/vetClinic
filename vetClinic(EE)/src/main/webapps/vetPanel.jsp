@@ -18,15 +18,16 @@
         <td>Room</td>
         <td>Visit date</td>
         <td>Visited</td>
+        <td>Edit visit</td>
     </tr>
     <c:forEach items="${visits}" var="newVisit">
         <c:choose>
             <c:when test="${newVisit.visited==false}">
                 <tr>
-                    <td>${visit.pet.client.firstName} ${visit.pet.client.lastName}</td>
-                    <td>${visit.pet.kind.name}</td>
-                    <td>${visit.pet.nickname}</td>
-                    <td>${visit.pet.age}</td>
+                    <td>${newVisit.pet.client.firstName} ${newVisit.pet.client.lastName}</td>
+                    <td>${newVisit.pet.kind.name}</td>
+                    <td>${newVisit.pet.nickname}</td>
+                    <td>${newVisit.pet.age}</td>
                     <td>
                         <form method="post" action="controller?action=viewPetVisits">
                             <select required name="disease" size="1">
@@ -36,16 +37,28 @@
                             </select>
                         </form>
                     </td>
-                    <td>${visit.room.name}</td>
-                    <td>${visit.visitDateTime}</td>
-                    <td>${visit.visited}</td>
+                    <td>${newVisit.room.name}</td>
+                    <td>${newVisit.visitDateTime}</td>
+                    <td>${newVisit.visited}</td>
+                    <td>
+                        <form method="post" action="editVisit.jsp">
+                            <input type="hidden" name="clientName" value="${pet.id}">
+                            <input type="hidden" name="petKind" value="${pet.id}">
+                            <input type="hidden" name="petNickname" value="${pet.id}">
+                            <input type="hidden" name="petAge" value="${pet.id}">
+                            <input type="hidden" name="petDiseases" value="${pet.id}">
+                            <input type="hidden" name="Room" value="${pet.id}">
+                            <input type="hidden" name="Visit date" value="${pet.id}">
+                            <input type="hidden" name="editVisit" value="${pet.id}">
+                            <input type="submit" value="remove"
+                                   onclick="return confirm('Remove this pet?')">
+                        </form>
+                    </td>
                 </tr>
             </c:when>
         </c:choose>
     </c:forEach>
 </table>
-
-
 
 
 <p>Your previous visits:</p>

@@ -90,7 +90,7 @@ public class VisitDAO extends AbstractDAO {
                 Visit visit = new Visit();
 
                 client.setFirstName(rs.getString("clientFirstName"));
-                client.setFirstName(rs.getString("clientLastName"));
+                client.setLastName(rs.getString("clientLastName"));
                 kind.setName(rs.getString("petKind"));
                 pet.setNickname(rs.getString("petNickname"));
                 pet.setAge(rs.getInt("petAge"));
